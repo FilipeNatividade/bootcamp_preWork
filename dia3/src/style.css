@@ -8,8 +8,12 @@
 }
 
 .container {
+  align-items: center;
   border: 1px solid #000;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 25px;
   padding: 15px;
 }
 
@@ -18,10 +22,23 @@
   text-align: center;
 }
 
+.container select {
+  margin: 0 auto;
+  padding: 5px 25px;
+}
+
 .subContainer {
   display: flex;
   justify-content: space-between;
   padding: 15px;
+  width: 100%;
+}
+.subContainerColor {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  width: 100%;
 }
 
 .subContainer form,
@@ -32,4 +49,10 @@ p {
 }
 .subContainer label {
   margin-right: 15px;
+}
+
+.showColor {
+  height: 100px;
+  width: 100px;
+  margin: 5px 10px;
 }
