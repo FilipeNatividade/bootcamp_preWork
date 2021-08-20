@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  padding: 5px;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -34,7 +42,6 @@
   width: 100%;
 }
 .subContainerColor {
-  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   padding: 15px;
@@ -55,4 +62,30 @@ p {
   height: 100px;
   width: 100px;
   margin: 5px 10px;
+}
+
+.subContainerCar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  width: 100%;
+}
+
+.subContainerCar form {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  width: 15%;
+}
+.subContainerCar button {
+  margin-top: 25px;
+}
+
+.subContainerCar table {
+  border: 2px solid;
+  width: 80%;
+}
+
+.subContainerCar td {
+  border: 2px solid;
 }

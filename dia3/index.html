@@ -19,6 +19,42 @@
       </div>
     </div>
 
+    <div class="container">
+      <h2>Exercício 3</h2>
+      <div class="subContainerCar">
+        <form data-js="formCars">
+          <label for="image">Imagem: </label>
+          <input type="file" id="image" name="image" />
+
+          <label for="brand">Marca: </label>
+          <input type="text" id="brand" name="brand" />
+
+          <label for="year">Ano: </label>
+          <input type="text" id="year" name="year" />
+
+          <label for="plate">placa: </label>
+          <input type="text" id="plate" name="plate" />
+
+          <label for="color">cor: </label>
+          <input type="color" id="color" name="color" />
+
+          <button type="submit">Enviar</button>
+        </form>
+        <table>
+          <thead>
+            <tr>
+              <th>Imagem</th>
+              <th>Marca/Modelo</th>
+              <th>Ano</th>
+              <th>Placa</th>
+              <th>Cor</th>
+            </tr>
+          </thead>
+          <tbody data-js="tableHead"></tbody>
+        </table>
+      </div>
+    </div>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
