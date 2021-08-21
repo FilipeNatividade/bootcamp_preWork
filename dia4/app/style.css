@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 25px auto;
+  padding: 15px;
+}
+
+.formCars {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 15px;
+  width: 300px;
+}
+
+.formCars label {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.formCars input {
+  height: 30px;
+}
+
+.formCars button {
+  border: none;
+  border-radius: 5px;
+  background-color: #adff2f;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 20px;
+  font-weight: bold;
+  height: 35px;
+  margin: 25px auto 15px;
+  outline: none;
+  width: 125px;
+}
+
+main table {
+  border-radius: 15px;
+  border: 2px solid;
+  width: 900px;
+}
+
+main td {
+  border: 2px solid;
+}

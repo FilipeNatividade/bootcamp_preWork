@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dia 4</title>
+  </head>
+  <body>
+    <h1>Desafiio 4</h1>
+    <main>
+      <form data-js="formCars" class="formCars">
+        <label for="image">Imagem: </label>
+        <input required type="text" id="image" name="image" />
+
+        <label for="brand">Marca: </label>
+        <input required type="text" id="brand" name="brand" />
+
+        <label for="year">Ano: </label>
+        <input required type="text" id="year" name="year" />
+
+        <label for="plate">placa: </label>
+        <input required type="text" id="plate" name="plate" />
+
+        <label for="color">cor: </label>
+        <input required type="color" id="color" name="color" />
+
+        <button type="submit">Enviar</button>
+      </form>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Imagem</th>
+            <th>Marca/Modelo</th>
+            <th>Ano</th>
+            <th>Placa</th>
+            <th>Cor</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody data-js="tableHead"></tbody>
+      </table>
+    </main>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
