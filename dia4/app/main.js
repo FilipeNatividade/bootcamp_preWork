@@ -11,8 +11,10 @@ const messages = (text) => {
   modal.innerText = text;
   modal.style.position = "absolute";
   modal.style.zIndex = "1";
-
   main.appendChild(modal);
+  setInterval(() => {
+    main.removeChild(modal);
+  }, 3000);
 };
 
 const noCars = () => {
@@ -25,6 +27,8 @@ const noCars = () => {
 };
 
 form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
   const inputsValue = {
     image: e.target.elements.image.value,
     brandModel: e.target.elements.brand.value,
@@ -32,6 +36,8 @@ form.addEventListener("submit", async (e) => {
     plate: e.target.elements.plate.value,
     color: e.target.elements.color.value,
   };
+
+  post(inputsValue);
 
   e.target.reset();
   image.focus();
@@ -49,7 +55,6 @@ const request = async () => {
     messages(result.message);
   }
 
-  console.log(result.length);
   result.length === 0
     ? noCars()
     : result.forEach((item) => {
@@ -74,6 +79,26 @@ const crateTR = (data) => {
     tableRow.appendChild(tableData);
     tableHead.appendChild(tableRow);
   });
+};
+
+const post = async (data) => {
+  let result = await fetch(url, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => response.json())
+    .catch((error) => ({
+      error: true,
+      message: error.message,
+    }));
+
+  if (result.error === true) {
+    messages(result.message);
+  }
 };
 
 request();

@@ -55,12 +55,16 @@ main {
 }
 
 main table {
+  background-color: #000;
+  color: #fff;
   border-radius: 15px;
   border: 2px solid;
   width: 900px;
 }
 
 main td {
+  background-color: #fff;
+  color: #000;
   border: 2px solid;
   border-radius: 15px;
 }
