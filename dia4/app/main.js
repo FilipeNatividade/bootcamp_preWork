@@ -63,8 +63,6 @@ const request = async () => {
 };
 
 const crateTR = (data) => {
-  const tableRow = document.createElement("tr");
-
   const inputs = [
     data.image,
     data.brandModel,
@@ -73,17 +71,60 @@ const crateTR = (data) => {
     data.color,
   ];
 
+  const handleDelete = (e) => {
+
+    const plate = e.target.dataset.plate
+
+    const tr = document.querySelector(
+      `tr[data-plate='${plate}']`
+    );
+
+    removeItem({plate})
+    tableHead.removeChild(tr);
+    button.removeEventListener('click', handleDelete)
+  };
+
+  const tableRow = document.createElement("tr");
+  tableRow.dataset.plate = inputs[3];
+
+  const button = document.createElement("button");
+  button.dataset.plate = inputs[3];
+  button.innerText = "Excluir";
+  button.addEventListener("click", handleDelete)
+
   inputs.forEach((item) => {
     const tableData = document.createElement("td");
     tableData.innerText = item;
     tableRow.appendChild(tableData);
     tableHead.appendChild(tableRow);
   });
+
+  tableRow.appendChild(button);
 };
 
 const post = async (data) => {
   let result = await fetch(url, {
     method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => response.json())
+    .catch((error) => ({
+      error: true,
+      message: error.message,
+    }));
+
+  if (result.error === true) {
+    messages(result.message);
+  }
+};
+
+const removeItem = async (data) => {
+  let result = await fetch(url, {
+    method: "DELETE",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
