@@ -1,9 +1,28 @@
 import "./style.css";
 
 const url = "http://localhost:3333/cars";
-
+const main = document.querySelector('[data-js="main"]');
 const form = document.querySelector('[data-js="formCars"]');
 const tableHead = document.querySelector('[data-js="tableHead"]');
+
+const messages = (text) => {
+  const modal = document.createElement("div");
+  modal.className = "modal";
+  modal.innerText = text;
+  modal.style.position = "absolute";
+  modal.style.zIndex = "1";
+
+  main.appendChild(modal);
+};
+
+const noCars = () => {
+  const tableRow = document.createElement("tr");
+  const tableData = document.createElement("td");
+  tableData.setAttribute("colspan", 6);
+  tableData.innerText = "Não possui nenhum carro";
+  tableRow.appendChild(tableData);
+  tableHead.appendChild(tableRow);
+};
 
 form.addEventListener("submit", async (e) => {
   const inputsValue = {
@@ -13,7 +32,6 @@ form.addEventListener("submit", async (e) => {
     plate: e.target.elements.plate.value,
     color: e.target.elements.color.value,
   };
-
 
   e.target.reset();
   image.focus();
@@ -28,12 +46,15 @@ const request = async () => {
     }));
 
   if (result.error) {
-    alert(result.message);
+    messages(result.message);
   }
 
-  result.forEach((item) => {
-    crateTR(item);
-  });
+  console.log(result.length);
+  result.length === 0
+    ? noCars()
+    : result.forEach((item) => {
+        crateTR(item);
+      });
 };
 
 const crateTR = (data) => {
